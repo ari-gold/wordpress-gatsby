@@ -65,7 +65,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
       await actions.createPage({
         component: resolve(contentTypeTemplate),
-        path: uri,
+        path: uri.replace( '/home/', '/'),
         context: {
           id,
           nextPage: (contentNodes[i + 1] || {}).id,
