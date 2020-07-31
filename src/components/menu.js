@@ -4,27 +4,28 @@ import { Menu, Button, Grid, Box } from "@chakra-ui/core"
 import { normalizePath } from "../utils/get-url-path"
 
 export default () => {
-  const { wpMenu } = useStaticQuery(graphql`
-    {
-      wpMenu(slug: { eq: "main-menu" }) {
-        name
-        menuItems {
-          nodes {
-            label
-            url
-            parentId
-            connectedNode {
-              node {
-                ... on WpContentNode {
-                  uri
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
+  // const { wpMenu } = useStaticQuery(graphql`
+  //   {
+  //     wpMenu(slug: { eq: "main-menu" }) {
+  //       name
+  //       menuItems {
+  //         nodes {
+  //           label
+  //           url
+  //           parentId
+  //           connectedNode {
+  //             node {
+  //               ... on WpContentNode {
+  //                 uri
+  //               }
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // `)
+  const wpMenu = {}
 
   return !!wpMenu && !!wpMenu.menuItems && !!wpMenu.menuItems.nodes ? (
     <Box mb={10} style={{ maxWidth: `100%` }}>
